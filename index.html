@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="editor" content="-Editor_by_Candra_A-" />
     <link rel="stylesheet" href="Chess.css" />
+    
 
     <title>GAME_CATUR</title>
   </head>
@@ -100,8 +101,27 @@
       </div>
     </ul>
     <script src="Chess.js"></script>
-    
   </body>
-
-  <script></script>
+  <section class="sec">
+    <div class="toggle"></div>
+    <div class="boxs">
+      <div class="content">
+        <h3>BATTERY</h3>
+        <div class="batteryShape">
+          <div class="level">
+            <div class="percentage"></div>
+          </div>
+        </div>
+        <div class="percent">50%</div>
+      </div>
+    </div>
+  </section>
+  <script>
+    let percentage = document.querySelector(".percentage");
+    let percent = document.querySelector(".percent");
+    navigator.getBattery().then(function (battery) {
+      percentage.style.width = battery.level * 100 + "%";
+      percent.innerHTML = battery.level * 100 + "%";
+    });
+  </script>
 </html>
